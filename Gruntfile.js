@@ -63,6 +63,10 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      sass: {
+        files: '<%= yeoman.app %>/styles/**/*.scss',
+        tasks: ['sass']
       }
     },
 
@@ -421,6 +425,17 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+        }
+      }
     }
   })
 
@@ -476,5 +491,9 @@ module.exports = function (grunt) {
     'newer:jscs',
     'test',
     'build'
+  ])
+
+  grunt.registerTask('default', [
+    'sass'
   ])
 }
