@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc overview
@@ -9,4 +9,4 @@
  * Main module of the application.
  */
 angular
-  .module('mdCodingTestApp', []);
+  .module('mdCodingTestApp', [])

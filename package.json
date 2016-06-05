@@ -32,12 +32,26 @@
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.0",
     "phantomjs-prebuilt": "^2.1.7",
+    "standard": "^7.1.2",
     "time-grunt": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "standard"
+  },
+  "standard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "angular",
+      "before",
+      "beforeEach",
+      "describe",
+      "expect",
+      "inject",
+      "it"
+    ]
   }
 }
