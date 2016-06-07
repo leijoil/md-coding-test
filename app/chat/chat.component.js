@@ -1,17 +1,16 @@
 'use strict'
 
-/**
- * @ngdoc function
- * @name mdCodingTestApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the mdCodingTestApp
- */
 angular.module('mdCodingTestApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ]
+  .component('chat', {
+    templateUrl: 'views/chat.html',
+    controller: 'ChatCtrl as chat'
+  })
+  .controller('ChatCtrl', function ($scope, ChatService) {
+    var chat = this
+    chat.connected = false
+    chat.nick = {name: null}
+
+    chat.connect = function () {
+      ChatService.connect()
+    }
   })
