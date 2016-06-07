@@ -37,7 +37,7 @@ angular.module('mdCodingTestApp')
       service.ws.send(message)
     }
 
-    service.subscribe = function (callback) {
+    service.listen = function (callback) {
       service.callback = callback
     }
 

@@ -13,4 +13,13 @@ angular.module('mdCodingTestApp')
     chat.connect = function () {
       ChatService.connect()
     }
+
+    ChatService.listen(function (error, readyState, message) {
+      if (error) {
+        console.log(error)
+        chat.error = 'WebSocket error'
+      } else {
+        console.log(error, readyState, message)
+      }
+    })
   })
