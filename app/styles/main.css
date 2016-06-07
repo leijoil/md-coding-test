@@ -1,0 +1,19 @@
+* {
+  font-size: 13px; }
+
+.nick-choose {
+  padding-top: 40px; }
+
+.col-centered {
+  float: none;
+  margin: 0 auto; }
+
+.panel-body {
+  height: 400px;
+  overflow-y: scroll; }
+
+.panel-heading {
+  line-height: 32px; }
+
+.media {
+  margin-top: 0px; }
