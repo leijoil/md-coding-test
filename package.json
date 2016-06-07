@@ -53,10 +53,14 @@
       "angular",
       "before",
       "beforeEach",
+      "browser",
+      "by",
       "describe",
+      "element",
       "expect",
       "inject",
-      "it"
+      "it",
+      "WebSocket"
     ]
   }
 }
