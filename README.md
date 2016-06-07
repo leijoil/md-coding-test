@@ -1,12 +1,25 @@
 # md-coding-test
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+## Install
 
-## Build & development
+* `npm install`
+* `bower install`
 
-Run `grunt` for building and `grunt serve` for preview.
+## Development
 
-## Testing
+* `grunt serve`
 
-Running `grunt test` will run the unit tests with karma.
+## Unit test
+
+* `grunt test` 
+* Will run the unit tests with karma. 
+
+## e2e test
+* `grunt serve`
+* `grunt protractor:chrome` 
+* Will run the e2e tests.
+
+## Build
+
+* `grunt build`
+*  Production-ready application is available in the dist folder.
