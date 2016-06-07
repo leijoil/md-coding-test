@@ -13,3 +13,39 @@
     </form>
   </div>
 </div>
+<div class="row">
+  <div class="col-sm-8 col-centered">
+    <div class="panel panel-info" ng-show="chat.connected">
+      <div class="panel-heading">
+        CHAT HISTORY
+        <button class="btn btn-danger pull-right" type="button" ng-click="chat.disconnect()">DISCONNECT</button>
+      </div>
+      <div class="panel-body" scroll-bottom="chat.messageObjects">
+        <ul class="media-list">
+          <li class="media" ng-repeat="messageObject in chat.messageObjects track by $index">
+            <div class="media-body">
+              <div class="media">
+                <div class="media-body">
+                  {{messageObject.message}}
+                  <br />
+                  <small class="text-muted">{{messageObject.sender}} |  {{chat.date | date:'short'}}</small>
+                  <hr />
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <form name="sender">
+          <div class="input-group">
+            <input key-listener type="text" class="form-control" ng-model="chat.text" placeholder="Enter Message" required/>
+            <span class="input-group-btn">
+            <button class="btn btn-info" type="button" ng-disabled="sender.$invalid" ng-click="chat.send()">SEND</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
