@@ -20,7 +20,7 @@
         CHAT HISTORY
         <button class="btn btn-danger pull-right" type="button" ng-click="chat.disconnect()">DISCONNECT</button>
       </div>
-      <div class="panel-body" scroll-bottom="chat.messageObjects">
+      <div class="panel-body" scroll-down="chat.messageObjects">
         <ul class="media-list">
           <li class="media" ng-repeat="messageObject in chat.messageObjects track by $index">
             <div class="media-body">
