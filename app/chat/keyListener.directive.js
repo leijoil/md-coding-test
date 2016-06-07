@@ -9,7 +9,11 @@ angular.module('mdCodingTestApp')
           if (scope.connector.$valid && e.which === 13) {
             ctrl.connect()
           }
+          if (scope.sender.$valid && e.which === 13) {
+            ctrl.send()
+          }
         })
       }
     }
   })
+
