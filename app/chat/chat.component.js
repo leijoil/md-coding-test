@@ -5,7 +5,7 @@ angular.module('mdCodingTestApp')
     templateUrl: 'views/chat.html',
     controller: 'ChatCtrl as chat'
   })
-  .controller('ChatCtrl', function ($scope, ChatService) {
+  .controller('ChatCtrl', ['$scope', 'ChatService', function ($scope, ChatService) {
     var chat = this
     chat.connected = false
     chat.date = new Date()
@@ -82,4 +82,4 @@ angular.module('mdCodingTestApp')
       chat.text = ''
       chat.error = ''
     }
-  })
+  }])
