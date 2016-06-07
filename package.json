@@ -60,6 +60,7 @@
       "expect",
       "inject",
       "it",
+      "protractor",
       "WebSocket"
     ]
   }
