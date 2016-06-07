@@ -22,4 +22,10 @@ angular.module('mdCodingTestApp')
         console.log(error, readyState, message)
       }
     })
+    chat.welcomeByNick = function (welcomeMessage) {
+      if (welcomeMessage.indexOf('Anonymous') >= 0) {
+        welcomeMessage = welcomeMessage.replace('Anonymous', chat.nick.name)
+      }
+      return welcomeMessage
+    }
   })
