@@ -64,11 +64,10 @@ angular.module('mdCodingTestApp')
     }
 
     chat.reset = function () {
-      chat.messageObjects = []
       chat.connected = false
-      chat.nick = {name: ''}
-      chat.welcomeShowed = false
-      chat.text = ''
       chat.error = ''
+      chat.messageObjects = []
+      chat.nick = {name: ''}
+      chat.text = ''
     }
   }])
