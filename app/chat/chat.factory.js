@@ -1,15 +1,15 @@
 'use strict'
+
 angular.module('mdCodingTestApp')
-  .constant('config', {url: 'ws://codingtest.meedoc.com/ws'})
-  .factory('ChatService', function (config) {
+  .factory('ChatService', function () {
     var service = {}
 
-    service.connect = function () {
+    service.connect = function (wsUri) {
       if (service.ws) {
         return
       }
 
-      var ws = new WebSocket(config.url)
+      var ws = new WebSocket(wsUri)
 
       ws.onopen = function () {
         service.callback(null, ws.readyState, null)

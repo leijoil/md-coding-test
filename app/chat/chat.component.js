@@ -11,12 +11,12 @@ angular.module('mdCodingTestApp')
     chat.date = new Date()
     chat.error = ''
     chat.messageObjects = []
-    chat.nick = {name: null}
+    chat.nick = {name: ''}
     chat.text = ''
-    chat.welcomeShowed = false
+    chat.wsUri = 'wss://codingtest.meedoc.com/ws?username='
 
     chat.connect = function () {
-      ChatService.connect()
+      ChatService.connect(chat.wsUri + encodeURIComponent(chat.nick.name))
     }
 
     ChatService.listen(function (error, readyState, message) {
@@ -38,10 +38,6 @@ angular.module('mdCodingTestApp')
           $scope.$apply()
         }
         if (message !== null) {
-          if (!chat.welcomeShowed) {
-            message = chat.welcomeByNick(message)
-            chat.welcomeShowed = true
-          }
           message = JSON.parse(message)
           chat.messageObjects.push(message)
           $scope.$apply()
@@ -55,7 +51,7 @@ angular.module('mdCodingTestApp')
 
     chat.send = function () {
       var messageObj = {
-        sender: this.nick.name,
+        sender: chat.nick.name,
         message: chat.text
       }
       chat.messageObjects.push(messageObj)
@@ -67,17 +63,10 @@ angular.module('mdCodingTestApp')
       ChatService.close()
     }
 
-    chat.welcomeByNick = function (welcomeMessage) {
-      if (welcomeMessage.indexOf('Anonymous') >= 0) {
-        welcomeMessage = welcomeMessage.replace('Anonymous', chat.nick.name)
-      }
-      return welcomeMessage
-    }
-
     chat.reset = function () {
       chat.messageObjects = []
       chat.connected = false
-      chat.nick = {name: null}
+      chat.nick = {name: ''}
       chat.welcomeShowed = false
       chat.text = ''
       chat.error = ''
